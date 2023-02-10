@@ -6,6 +6,7 @@ import Row from '@/components/Row'
 import requests from '@/utils/requests'
 
 import { Movie } from '@/interfaces/move'
+import useAuth from '@/hooks/useAuth'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -28,7 +29,12 @@ export default function Home(
     topRated,
     trendingNow,
   } : Props) {
+
+    const {logout,loading} = useAuth();
+    if(loading) return null
   return (
+    
+
     <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
       <Head>
         <title>Create Next App</title>
@@ -69,7 +75,7 @@ export const getServerSideProps = async () => {
     topRated,
     actionMovies,
     comedyMovies,
-    horrorMovies,
+    horrorMovies, 
     romanceMovies,
     documentaries,
   ] = await Promise.all([

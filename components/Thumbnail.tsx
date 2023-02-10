@@ -18,12 +18,9 @@ function Thumbnail({movie} : Props) {
           movie?.backdrop_path || movie?.poster_path
         }`}
         className="rounded-sm object-cover md:rounded"
-        alt='Movie Poster'
+        alt={movie?.title || movie?.original_name}
         fill
       />
-       <h1>
-            {movie?.title || movie?.original_name}
-        </h1>
     </div>
   )
 }
