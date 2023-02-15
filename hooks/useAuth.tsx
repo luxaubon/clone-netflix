@@ -38,18 +38,21 @@ import {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                setLoading(false);
-            } else {
-                setUser(null);
-                setLoading(true);
-                router.push('/login');
-            }
-            setInitialLoading(false);
-        })
-        return unsubscribe;
+        // const unsubscribe = onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+        //         setUser(user);
+        //         setLoading(false);
+        //     } else {
+        //         setUser(null);
+        //         setLoading(true);
+        //         router.push('/login');
+        //     }
+        //     setInitialLoading(false);
+        // })
+        // return unsubscribe;
+
+        setInitialLoading(false);
+        setLoading(false);
     }),[auth];
     
 
